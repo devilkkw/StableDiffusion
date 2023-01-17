@@ -4,7 +4,10 @@ A repo for stable diffusion.
 ## Wildcards
 ##### A big collection of wilcards for [Automatic1111 Wildcards extension](https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards "Wildcards Homepage")
 ---
-## My wheightpoints
+## Working on wheightpoints
+### KKW FANTAREAL V1.1
+---
+## Released wheightpoints
 
 #### HuggingFace
 ###### [KKW FANTAREAL V1.0](https://huggingface.co/devilkkw/KKW_FANTAREAL_V1.0 "kkw models")
