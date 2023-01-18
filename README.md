@@ -12,7 +12,7 @@ A repo for stable diffusion.
 ### KKW FANTAREAL V1.1
 #### Civitai
 ###### [KKW FANTAREAL V1.1](https://civitai.com/models/4723/kkw-fantareal-v11 "kkw models")
-![KKW FATAREAL V1.1 SAMPLE IMAGE](https://imagecache.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/a63f7c80-e26b-44b9-2991-280f3c9a5d00/width=1024 "KKW FANTAREAL V1.0")
+![KKW FATAREAL V1.1 SAMPLE IMAGE](https://imagecache.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/a63f7c80-e26b-44b9-2991-280f3c9a5d00/width=1024 "KKW FANTAREAL V1.1")
 
 ---
 ### KKW FANTAREAL V1.0
