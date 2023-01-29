@@ -4,6 +4,11 @@ A repo for stable diffusion.
 ## Wildcards
 [Go to collection](https://github.com/devilkkw/StableDiffusion/tree/main/wildcards "Go to collection")
 ##### A big collection of wilcards for [Automatic1111 Wildcards extension](https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards "Wildcards Homepage")
+
+A big colletion of prompts.
+
+[Ready to use prompt](https://github.com/devilkkw/StableDiffusion/tree/main/wildcards/FullPrompts "Go to full prompts")
+
 ---
 ## Working on wheightpoints
   nothing
