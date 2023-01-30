@@ -5,8 +5,6 @@ A repo for stable diffusion.
 [Go to collection](https://github.com/devilkkw/StableDiffusion/tree/main/Wildcards "Go to collection")
 ##### A big collection of wilcards for [Automatic1111 Wildcards extension](https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards "Wildcards Homepage")
 
--check and reupload in progress-
-
 ---
 ## Working on wheightpoints
   nothing
