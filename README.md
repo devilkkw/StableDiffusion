@@ -7,9 +7,16 @@ A repo for stable diffusion.
 
 ---
 ## Working on wheightpoints
-  nothing
+####  nothing
 ---
 ## Released wheightpoints
+
+### KKW UNIMIND V1.0
+#### Civitai
+###### [KKW UNIMIND V1.0](https://civitai.com/models/6637/kkw-unimind "kkw models")
+![KKW UNIMIND V1.0 SAMPLE IMAGE](https://imagecache.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/40c2f288-513a-4140-933d-045ad55d8700/width=400 "KKW UNIMIND V1.0")
+
+---
 ### KKW ANI-ME V1.0
 #### Civitai
 ###### [KKW ANI-ME V1.0](https://civitai.com/models/5033/kkw-ani-me-v10 "kkw models")
