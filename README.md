@@ -11,6 +11,12 @@ A repo for stable diffusion.
 ---
 ## Released wheightpoints
 
+### KKW IDEAL V1.0
+#### Civitai
+###### [KKW IDEAL V1.0](https://civitai.com/models/16554/kkw-ideal "kkw models")
+![KKW IDEAL V1.0 SAMPLE IMAGE](https://imagecache.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/d249aa2f-8dea-468b-2267-8d5fa387ad00/width=400/205324 "KKW IDEAL V1.0")
+
+---
 ### KKW UNIMIND V1.0
 #### Civitai
 ###### [KKW UNIMIND V1.0](https://civitai.com/models/6637/kkw-unimind "kkw models")
