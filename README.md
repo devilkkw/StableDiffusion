@@ -1,6 +1,10 @@
 # StableDiffusion
 A repo for stable diffusion.
 
+## Mod
+[Go to Mod](https://github.com/devilkkw/StableDiffusion/tree/main/mod "Go to mod")
+##### Mod for Automatic1111 and Extension
+
 ## Wildcards
 [Go to collection](https://github.com/devilkkw/StableDiffusion/tree/main/Wildcards "Go to collection")
 ##### A big collection of wilcards for [Automatic1111 Wildcards extension](https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards "Wildcards Homepage")
