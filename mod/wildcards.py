@@ -26,7 +26,7 @@ class WildcardsScript(scripts.Script):
                 lines = f.read().splitlines()
 
             used_lines_file = os.path.join(tempfile.gettempdir(), f"used_{text}.txt")
-            used_lines = set()
+            used_lines = set(range(len(lines)))
             if os.path.exists(used_lines_file):
                 with open(used_lines_file, "r") as f:
                     used_lines = set(int(line.strip()) for line in f.readlines())
@@ -34,7 +34,7 @@ class WildcardsScript(scripts.Script):
             available_lines = set(range(len(lines))) - used_lines
             if len(available_lines) == 0:
                 # Reset used lines if all lines have been used
-                used_lines = set()
+                used_lines = set(range(len(lines)))
                 available_lines = set(range(len(lines)))
 
             chosen_line = gen.choice(list(available_lines))
