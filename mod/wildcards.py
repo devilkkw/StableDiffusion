@@ -16,44 +16,35 @@ class WildcardsScript(scripts.Script):
     def show(self, is_img2img):
         return scripts.AlwaysVisible
 
-    def replace_wildcard(self, text, gen):
+    def get_used_lines(self, wildcard):
+        used_lines_file = os.path.join(tempfile.gettempdir(), f"used_{wildcard}.txt")
+        if os.path.exists(used_lines_file):
+            with open(used_lines_file, "r") as f:
+                used_lines = set(int(line.strip()) for line in f.readlines())
+        else:
+            used_lines = set()
+        return used_lines
+
+    def save_used_lines(self, wildcard, used_lines):
+        used_lines_file = os.path.join(tempfile.gettempdir(), f"used_{wildcard}.txt")
+        with open(used_lines_file, "w") as f:
+            for line in used_lines:
+                f.write(str(line) + "\n")
+
+    def replace_wildcard(self, text, lines, used_lines, gen):
         if " " in text or len(text) == 0:
             return text
 
-        replacement_file = os.path.join(wildcard_dir, "wildcards", f"{text}.txt")
-        if os.path.exists(replacement_file):
-            with open(replacement_file, encoding="utf8") as f:
-                lines = f.read().splitlines()
+        available_lines = set(range(len(lines))) - used_lines
+        if len(available_lines) == 0:
+            # Reset used lines if all lines have been used
+            used_lines = set()
+            available_lines = set(range(len(lines)))
 
-            used_lines_file = os.path.join(tempfile.gettempdir(), f"used_{text}.txt")
-            used_lines = []
-            if os.path.exists(used_lines_file):
-                with open(used_lines_file, "r") as f:
-                    used_lines = [int(line.strip()) for line in f.readlines()]
+        chosen_line = gen.choice(list(available_lines))
+        used_lines.add(chosen_line)
 
-            if len(used_lines) == len(lines):
-                used_lines = []
-
-            available_lines = set(range(len(lines))) - set(used_lines)
-            if len(available_lines) == 0:
-                # Reset used lines if all lines have been used
-                used_lines = []
-                available_lines = set(range(len(lines)))
-
-            chosen_line = gen.choice(list(available_lines))
-            used_lines.append(chosen_line)
-
-            with open(used_lines_file, "w") as f:
-                for line in used_lines:
-                    f.write(str(line) + "\n")
-
-            return lines[chosen_line]
-        else:
-            if replacement_file not in warned_about_files:
-                print(f"File {replacement_file} not found for the __{text}__ wildcard.", file=sys.stderr)
-                warned_about_files[replacement_file] = 1
-
-        return text
+        return lines[chosen_line], used_lines
 
     def process(self, p):
         original_prompt = p.all_prompts[0]
@@ -63,14 +54,23 @@ class WildcardsScript(scripts.Script):
             gen.seed(p.all_seeds[0 if shared.opts.wildcards_same_seed else i])
 
             prompt = p.all_prompts[i]
-            chunks = prompt.split("__")
-            new_chunks = []
-            for j in range(len(chunks)):
-                if j % 2 == 0:
-                    new_chunks.append(chunks[j])
-                else:
-                    new_chunks.append(self.replace_wildcard(chunks[j], gen))
-            prompt = "".join(new_chunks)
+
+            wildcard_chunks = prompt.split("__")
+            for j in range(1, len(wildcard_chunks), 2):
+                wildcard = wildcard_chunks[j]
+                replacement_file = os.path.join(wildcard_dir, "wildcards", f"{wildcard}.txt")
+                if os.path.exists(replacement_file):
+                    with open(replacement_file, encoding="utf8") as f:
+                        lines = f.read().splitlines()
+
+                    used_lines = self.get_used_lines(wildcard)
+
+                    chosen_line, used_lines = self.replace_wildcard(wildcard, lines, used_lines, gen)
+                    wildcard_chunks[j] = chosen_line
+
+                    self.save_used_lines(wildcard, used_lines)
+
+            prompt = "".join(wildcard_chunks)
             p.all_prompts[i] = prompt
 
         if original_prompt != p.all_prompts[0]:
