@@ -26,19 +26,22 @@ class WildcardsScript(scripts.Script):
                 lines = f.read().splitlines()
 
             used_lines_file = os.path.join(tempfile.gettempdir(), f"used_{text}.txt")
-            used_lines = set(range(len(lines)))
+            used_lines = []
             if os.path.exists(used_lines_file):
                 with open(used_lines_file, "r") as f:
-                    used_lines = set(int(line.strip()) for line in f.readlines())
+                    used_lines = [int(line.strip()) for line in f.readlines()]
 
-            available_lines = set(range(len(lines))) - used_lines
+            if len(used_lines) == len(lines):
+                used_lines = []
+
+            available_lines = set(range(len(lines))) - set(used_lines)
             if len(available_lines) == 0:
                 # Reset used lines if all lines have been used
-                used_lines = set(range(len(lines)))
+                used_lines = []
                 available_lines = set(range(len(lines)))
 
             chosen_line = gen.choice(list(available_lines))
-            used_lines.add(chosen_line)
+            used_lines.append(chosen_line)
 
             with open(used_lines_file, "w") as f:
                 for line in used_lines:
@@ -60,7 +63,14 @@ class WildcardsScript(scripts.Script):
             gen.seed(p.all_seeds[0 if shared.opts.wildcards_same_seed else i])
 
             prompt = p.all_prompts[i]
-            prompt = "".join(self.replace_wildcard(chunk, gen) for chunk in prompt.split("__"))
+            chunks = prompt.split("__")
+            new_chunks = []
+            for j in range(len(chunks)):
+                if j % 2 == 0:
+                    new_chunks.append(chunks[j])
+                else:
+                    new_chunks.append(self.replace_wildcard(chunks[j], gen))
+            prompt = "".join(new_chunks)
             p.all_prompts[i] = prompt
 
         if original_prompt != p.all_prompts[0]:
