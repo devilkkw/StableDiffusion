@@ -1,6 +1,10 @@
 # StableDiffusion
 A repo for stable diffusion.
 
+## Utility
+[Go to Utility](https://github.com/devilkkw/StableDiffusion/tree/main/utility "Go to utility")
+##### Utility related to image
+
 ## Mod
 [Go to Mod](https://github.com/devilkkw/StableDiffusion/tree/main/mod "Go to mod")
 ##### Mod for Automatic1111 and Extension
