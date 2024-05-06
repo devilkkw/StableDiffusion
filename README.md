@@ -1,6 +1,10 @@
 # StableDiffusion
 A repo for stable diffusion.
 
+## CUI
+[Go to ComfyUI](https://github.com/devilkkw/StableDiffusion/tree/main/CUI)"Go to CUI")
+##### Workflow for CUI
+
 ## Utility
 [Go to Utility](https://github.com/devilkkw/StableDiffusion/tree/main/utility "Go to utility")
 ##### Utility related to image
