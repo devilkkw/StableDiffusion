@@ -2,7 +2,7 @@
 A repo for stable diffusion.
 
 ## CUI
-[Go to ComfyUI](https://github.com/devilkkw/StableDiffusion/tree/main/CUI)"Go to CUI")
+[Go to ComfyUI](https://github.com/devilkkw/StableDiffusion/tree/main/CUI "Go to CUI")
 ##### Workflow for CUI
 
 ## Utility
