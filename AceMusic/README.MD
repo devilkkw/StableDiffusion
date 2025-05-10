@@ -2,4 +2,7 @@
 
 Genre Test
 
-<audio src="https://github.com/devilkkw/StableDiffusion/blob/main/AceMusic/trance_KKw_test.mp3?raw=true"></audio>
+<audio controls>
+  <source src="https://github.com/devilkkw/StableDiffusion/blob/main/AceMusic/trance_KKw_test.mp3?raw=true" type="audio/mpeg">
+  
+</audio>
