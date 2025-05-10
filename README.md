@@ -1,3 +1,9 @@
+05/10/2025
+added AceMusic Genre Test 
+[Go to Test](https://github.com/devilkkw/StableDiffusion/tree/main/AceMusic)
+
+
+
 # StableDiffusion
 A repo for stable diffusion.
 
