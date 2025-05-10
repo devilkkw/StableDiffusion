@@ -1,5 +1,4 @@
 This section is for Ace Music
 Genre Test
-<video controls="" autoplay="" name="media">
-    <source src="https://github.com/devilkkw/StableDiffusion/blob/main/AceMusic/trance_KKw_test.mp3" type="audio/mp3">
-</video>
+
+<audio src="https://github.com/devilkkw/StableDiffusion/blob/main/AceMusic/trance_KKw_test.mp3?raw=true"></audio>
